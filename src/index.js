@@ -22,8 +22,8 @@ const createWindow = () => {
 
   // and load the index.html of the app.
   // mainWindow.loadFile(path.join(__dirname, 'index.html'));
-  // mainWindow.loadURL('https://saoke.live/');
-  mainWindow.loadURL('https://www.facebook.com/');
+  mainWindow.loadURL('https://saoke.live/');
+  // mainWindow.loadURL('https://www.facebook.com/');
   mainWindow.webContents.on('new-window', function (e, url) {
     e.preventDefault();
     shell.openExternal(url);
