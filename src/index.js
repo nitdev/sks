@@ -8,9 +8,8 @@ if (require('electron-squirrel-startup')) { // eslint-disable-line global-requir
 }
 
 require('update-electron-app')({
-  repo: 'https://github.com/nitdev/sks',
+  repo: 'nitdev/sks',
   updateInterval: '5 minutes',
-  logger: require('electron-log')
 })
 
 
