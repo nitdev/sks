@@ -25,7 +25,7 @@
     "forge": {
       "packagerConfig": {
         "icon": "./build/icon",
-        "format": "ULFO"
+        "format": "DMG"
       },
       "makers": [
         {
