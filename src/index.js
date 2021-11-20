@@ -1,12 +1,18 @@
 const { app, BrowserWindow, autoUpdater, dialog } = require('electron');
 const path = require('path');
 const shell = require('electron').shell;
-require('update-electron-app')()
 
 // Handle creating/removing shortcuts on Windows when installing/uninstalling.
 if (require('electron-squirrel-startup')) { // eslint-disable-line global-require
   app.quit();
 }
+
+require('update-electron-app')({
+  repo: 'https://github.com/nitdev/sks',
+  updateInterval: '5 minutes',
+  logger: require('electron-log')
+})
+
 
 const createWindow = () => {
   // Create the browser window.
@@ -17,20 +23,49 @@ const createWindow = () => {
 
   // and load the index.html of the app.
   // mainWindow.loadFile(path.join(__dirname, 'index.html'));
-  mainWindow.loadURL('https://saoke.live/');
+  // mainWindow.loadURL('https://saoke.live/');
+  mainWindow.loadURL('https://www.facebook.com/');
   mainWindow.webContents.on('new-window', function (e, url) {
     e.preventDefault();
     shell.openExternal(url);
   });
 
   // Open the DevTools.
-  // mainWindow.webContents.openDevTools();
+  mainWindow.webContents.openDevTools();
 
 
   // check update
-  const server = 'https://admsk.site/'
-  const url = `${server}/update/${process.platform}/${app.getVersion()}`
-  autoUpdater.setFeedURL({ url })
+  // const server = 'https://github.com/nitdev/sks'
+  // const url = `${server}/update/${process.platform}/${app.getVersion()}`
+  // console.log("url", url);
+  // autoUpdater.setFeedURL({ url });
+
+  // autoUpdater.on('update-available', (event) => {
+  //   console.log('có bản cập nhật')
+  // });
+
+  // autoUpdater.on('update-downloaded', (event, releaseNotes, releaseName) => {
+  //   const dialogOpts = {
+  //     type: 'info',
+  //     buttons: ['Mở lại Saoke.Live', 'Để sau'],
+  //     title: 'Cập nhật SaoKe.Live',
+  //     message: process.platform === 'win32' ? releaseNotes : releaseName,
+  //     detail: 'SaoKe.Live đã có bản cập nhật. Vui lòng cập nhật bản mới để tiếp tục xem bóng đá Full HD hấp dẫn'
+  //   }
+
+  //   dialog.showMessageBox(dialogOpts).then((returnValue) => {
+  //     if (returnValue.response === 0) autoUpdater.quitAndInstall()
+  //   })
+  // });
+
+  // autoUpdater.on('error', message => {
+  //   console.error('Có lỗi cập nhật', message)
+  // })
+
+  // setInterval(() => {
+  //   console.log("vao interval");
+  //   autoUpdater.checkForUpdates()
+  // }, 60000)
 };
 
 // This method will be called when Electron has finished
