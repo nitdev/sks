@@ -7,11 +7,6 @@ if (require('electron-squirrel-startup')) { // eslint-disable-line global-requir
   app.quit();
 }
 
-require('update-electron-app')({
-  repo: 'nitdev/sks',
-  updateInterval: '5 minutes',
-})
-
 
 const createWindow = () => {
   // Create the browser window.
@@ -22,7 +17,7 @@ const createWindow = () => {
 
   // and load the index.html of the app.
   // mainWindow.loadFile(path.join(__dirname, 'index.html'));
-  mainWindow.loadURL('https://90phut.net/');
+  mainWindow.loadURL('https://www.youtube.com/watch?v=bXsyxIcb1wc');
   // mainWindow.loadURL('https://www.facebook.com/');
   mainWindow.webContents.on('new-window', function (e, url) {
     e.preventDefault();
@@ -31,6 +26,13 @@ const createWindow = () => {
 
   // Open the DevTools.
   // mainWindow.webContents.openDevTools();
+
+
+  require('update-electron-app')({
+    repo: 'nitdev/sks',
+    updateInterval: '5 minutes',
+    notifyUser: true
+  })
 };
 
 // This method will be called when Electron has finished

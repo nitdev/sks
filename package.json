@@ -1,9 +1,8 @@
 {
   "name": "saokelivedesktop",
   "productName": "saokelivedesktop",
-  "version": "7.0.0",
+  "version": "8.0.3",
   "description": "My Electron application description",
-  "repository": "git@github.com:nitdev/sks.git",
   "main": "src/index.js",
   "scripts": {
     "start": "electron-forge start",
@@ -22,11 +21,9 @@
   "license": "MIT",
   "config": {
     "icon": "./build/icon.png",
+    "buildIdentifier": "saoke.live",
     "forge": {
-      "packagerConfig": {
-        "icon": "./build/icon",
-        "format": "DMG"
-      },
+      "packagerConfig": {},
       "makers": [
         {
           "name": "@electron-forge/maker-squirrel",
@@ -47,21 +44,46 @@
         {
           "name": "@electron-forge/maker-rpm",
           "config": {}
+        },
+        {
+          "name": "@electron-forge/maker-dmg",
+          "config": {
+            "background": "build/icon.icns",
+            "format": "ULFO"
+          }
+        }
+      ],
+      "publishers": [
+        {
+          "name": "@electron-forge/publisher-github",
+          "config": {
+            "repository": {
+              "owner": "nitdev",
+              "name": "sks",
+              "repo": "sks",
+              "authToken": "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",
+              "draft": true
+            },
+            "authToken": "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",
+            "draft": true
+          }
         }
       ]
     }
   },
   "dependencies": {
-    "electron-log": "^4.4.1",
     "electron-squirrel-startup": "^1.0.0",
     "update-electron-app": "^2.0.1"
   },
   "devDependencies": {
-    "@electron-forge/cli": "^6.0.0-beta.61",
-    "@electron-forge/maker-deb": "^6.0.0-beta.61",
-    "@electron-forge/maker-rpm": "^6.0.0-beta.61",
-    "@electron-forge/maker-squirrel": "^6.0.0-beta.61",
-    "@electron-forge/maker-zip": "^6.0.0-beta.61",
-    "electron": "16.0.1"
+    "electron-log": "^4.4.1",
+    "@electron-forge/cli": "^6.0.0-beta.54",
+    "@electron-forge/maker-deb": "^6.0.0-beta.54",
+    "@electron-forge/maker-rpm": "^6.0.0-beta.54",
+    "@electron-forge/maker-dmg": "^6.0.0-beta.54",
+    "@electron-forge/maker-squirrel": "^6.0.0-beta.54",
+    "@electron-forge/maker-zip": "^6.0.0-beta.54",
+    "@electron-forge/publisher-github": "^6.0.0-beta.54",
+    "electron": "11.1.1"
   }
 }
