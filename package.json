@@ -23,7 +23,10 @@
     "icon": "./build/icon.png",
     "buildIdentifier": "saoke.live",
     "forge": {
-      "packagerConfig": {},
+      "packagerConfig": {
+        "icon": "./build/icon",
+        "format": "DMG"
+      },
       "makers": [
         {
           "name": "@electron-forge/maker-squirrel",
