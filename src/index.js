@@ -30,9 +30,8 @@ const createWindow = () => {
   });
 
   // Open the DevTools.
-  mainWindow.webContents.openDevTools();
-
-
+  // mainWindow.webContents.openDevTools();
+  
   // check update
   // const server = 'https://github.com/nitdev/sks'
   // const url = `${server}/update/${process.platform}/${app.getVersion()}`
